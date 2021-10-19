@@ -1,12 +1,5 @@
 <?php
-/**
- * KCGCustomPermalinks Uninstall
- *
- * Deletes Option and Post Permalinks on uninstalling the Plugin.
- *
- * @package KCGCustomPermalinks
 
- */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;

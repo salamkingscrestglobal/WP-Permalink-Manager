@@ -175,7 +175,7 @@ class WP_Permalink_Frontend {
 				)
 			);
 
-			$remove_like_query = apply_filters( 'cp_remove_like_query', '__true' );
+			$remove_like_query = apply_filters( 'wp_permalink_manager_remove_like_query', '__true' );
 			if ( ! $posts && '__true' === $remove_like_query ) {
 				// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
 				$posts = $wpdb->get_results(

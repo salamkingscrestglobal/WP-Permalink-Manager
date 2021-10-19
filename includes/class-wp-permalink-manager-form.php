@@ -1,44 +1,19 @@
 <?php
-/**
- * WP Permalink Manager Form.
- *
- * @package KCGCustomPermalinks
- */
+
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * Class that shows permalink form on edit post/category and saves it.
- */
+
 class WP_Permalink_Manager_Form {
-	/**
-	 * JS file suffix extension.
-	 *
-	 * @var string
-	 */
+
 	private $js_file_suffix = '.min.js';
 
-	/**
-	 * Decide whether to show metabox or override WordPress default Permalink box.
-	 *
-	 * @var int
-	 */
 	private $permalink_metabox = 0;
 
-	/**
-	 * Initialize WordPress Hooks.
-	 *
-	 * @since 1.2.0
-	 * @access public
-	 *
-	 * @return void
-	 */
 	public function init() {
-		/*
-		 * JS file suffix (version number with extension).
-		 */
+		
 		$this->js_file_suffix = '.min.js';
 
 		add_action( 'add_meta_boxes', array( $this, 'permalink_edit_box' ) );
@@ -68,17 +43,8 @@ class WP_Permalink_Manager_Form {
 		add_filter( 'is_protected_meta', array( $this, 'protect_meta' ), 10, 2 );
 	}
 
-	/**
-	 * Initialize WordPress Hooks.
-	 *
-	 * @since 1.6.0
-	 * @access private
-	 *
-	 * @param object $post WP Post Object.
-	 *
-	 * return bool false Whether to show Custom Permalink form or not.
-	 */
-	private function exclude_custom_permalinks( $post ) {
+
+	private function exclude_permalink_manager( $post ) {
 		$args               = array(
 			'public' => true,
 		);
@@ -87,11 +53,6 @@ class WP_Permalink_Manager_Form {
 			$post->post_type
 		);
 
-		/*
-		 * Exclude custom permalink `form` from any post(s) if filter returns `true`.
-		 *
-		 * @since 1.6.0
-		 */
 		$exclude_posts     = apply_filters(
 			'wp_permalink_manager_exclude_posts',
 			$post
@@ -117,17 +78,10 @@ class WP_Permalink_Manager_Form {
 		return $check_availability;
 	}
 
-	/**
-	 * Register meta box(es).
-	 *
-	 * @since 1.4.0
-	 * @access public
-	 *
-	 * @return void
-	 */
+
 	public function permalink_edit_box() {
 		add_meta_box(
-			'custom-permalinks-edit-box',
+			'wp-permalink-manager-edit-box',
 			__( 'WP Permalink Manager', 'wp-permalink-manager' ),
 			array( $this, 'meta_edit_form' ),
 			null,
@@ -148,23 +102,13 @@ class WP_Permalink_Manager_Form {
 		return $protected;
 	}
 
-	/**
-	 * Sanitize given string to make it standard URL. It's a copy of default
-	 * `sanitize_title_with_dashes` function with few changes.
-	 
-	 */
+	
 	private function sanitize_permalink( $permalink, $language_code ) {
-		/*
-		 * Add Capability to allow Accents letter (if required). By default, It is
-		 * disabled.
-		 */
-		$check_accents_filter = apply_filters( 'custom_permalinks_allow_accents', false );
+		
+		$check_accents_filter = apply_filters( 'wp_permalink_manager_allow_accents', false );
 
-		/*
-		 * Add Capability to allow Capital letter (if required). By default, It is
-		 * disabled.
-		 */
-		$check_caps_filter = apply_filters( 'custom_permalinks_allow_caps', false );
+	
+		$check_caps_filter = apply_filters( 'wp_permalink_manager_allow_caps', false );
 
 		$allow_accents = false;
 		$allow_caps    = false;
@@ -341,16 +285,7 @@ class WP_Permalink_Manager_Form {
 		return $permalink;
 	}
 
-	/**
-	 * Save per-post options.
-	 *
-	 * @access public
-	 *
-	 * @param int     $post_id Post ID.
-	 * @param WP_Post $post    Post object.
-	 *
-	 * @return void
-	 */
+
 	public function save_post( $post_id, $post ) {
 		if ( ! isset( $_REQUEST['_wp_permalink_manager_post_nonce'] )
 			&& ! isset( $_REQUEST['wp_permalink_manager'] )
@@ -358,7 +293,7 @@ class WP_Permalink_Manager_Form {
 			return;
 		}
 
-		$action = 'custom-permalinks_' . $post_id;
+		$action = 'wp_permalink_manager_' . $post_id;
 		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 		if ( ! wp_verify_nonce( $_REQUEST['_wp_permalink_manager_post_nonce'], $action ) ) {
 			return;
@@ -385,7 +320,7 @@ class WP_Permalink_Manager_Form {
 				$language_code
 			);
 			$permalink = apply_filters(
-				'custom_permalink_before_saving',
+				'wp_permalink_manager_before_saving',
 				$permalink,
 				$post_id
 			);
@@ -394,30 +329,12 @@ class WP_Permalink_Manager_Form {
 		}
 	}
 
-	/**
-	 * Delete Post Permalink.
-	 *
-	 * @access public
-	 *
-	 * @param int $post_id Post ID.
-	 *
-	 * @return void
-	 */
+
 	public function delete_permalink( $post_id ) {
 		delete_metadata( 'post', $post_id, 'wp_permalink_manager' );
 	}
 
-	/**
-	 * Result Permalink HTML Form for classic editor and Gutenberg.
-	 *
-	 * @since 1.6.0
-	 * @access private
-	 *
-	 * @param object $post WP Post Object.
-	 * @param bool   $meta_box Show whether calls from classic WordPress or Gutenberg.
-	 *
-	 * @return string Permalink Form HTML.
-	 */
+	
 	private function get_permalink_html( $post, $meta_box = false ) {
 		$post_id   = $post->ID;
 		$permalink = get_post_meta( $post_id, 'wp_permalink_manager', true );
@@ -477,29 +394,19 @@ class WP_Permalink_Manager_Form {
 			}
 
 			if ( true === $meta_box ) {
-				$content .= '<style>.editor-post-permalink,.cp-permalink-hidden{display:none;}</style>';
+				$content .= '<style>.editor-post-permalink,.wp-permalink-manager-hidden{display:none;}</style>';
 			}
 		}
 
 		return '<strong>' . __( 'Permalink:', 'wp-permalink-manager' ) . '</strong> ' . $content;
 	}
 
-	/**
-	 * Per-post/page options (WordPress > 2.9).
-	 *
-	 * @access public
-	 *
-	 * @param string $html WP Post Permalink HTML.
-	 * @param int    $post_id Post ID.
-	 *
-	 * @return string Edit Form string.
-	 */
 	public function sample_permalink_html( $html, $post_id ) {
 		$post = get_post( $post_id );
 
-		$disable_cp              = $this->exclude_custom_permalinks( $post );
+		$disable_wp_pm              = $this->exclude_permalink_manager( $post );
 		$this->permalink_metabox = 1;
-		if ( $disable_cp ) {
+		if ( $disable_wp_pm ) {
 			return $html;
 		}
 
@@ -508,21 +415,12 @@ class WP_Permalink_Manager_Form {
 		return $output_content;
 	}
 
-	/**
-	 * Adds the Permalink Edit Meta box for the user with validating the
-	 * PostTypes to make compatibility with Gutenberg.
-	 *
-	 * @access public
-	 *
-	 * @param object $post WP Post Object.
-	 *
-	 * @return void
-	 */
+	
 	public function meta_edit_form( $post ) {
-		$disable_cp = $this->exclude_custom_permalinks( $post );
-		if ( $disable_cp ) {
+		$disable_wp_pm = $this->exclude_permalink_manager( $post );
+		if ( $disable_wp_pm ) {
 			wp_enqueue_script(
-				'custom-permalinks-form',
+				'wp-permalink-manager-form',
 				plugins_url(
 					'/assets/js/script-form' . $this->js_file_suffix,
 					WP_PERMALINK_MANAGER_FILE
@@ -537,7 +435,7 @@ class WP_Permalink_Manager_Form {
 
 		$screen = get_current_screen();
 		if ( 'add' === $screen->action ) {
-			echo '<input value="add" type="hidden" name="custom-permalinks-add" id="custom-permalinks-add" />';
+			echo '<input value="add" type="hidden" name="wp-permalink-manager-add" id="wp-permalink-manager-add" />';
 		}
 
 		$output_content = $this->get_permalink_html( $post, true );
@@ -546,16 +444,7 @@ class WP_Permalink_Manager_Form {
 		echo $output_content;
 	}
 
-	/**
-	 * Per-category/tag options.
-	 *
-	 * @access public
-	 *
-	 * @param object|string $tag Current taxonomy term object for Edit form
-	 *                           otherwise the taxonomy slug.
-	 *
-	 * @return void
-	 */
+	
 	public function term_options( $tag ) {
 		$permalink          = '';
 		$original_permalink = '';
@@ -579,8 +468,8 @@ class WP_Permalink_Manager_Form {
 		?>
 		<script type="text/javascript">
 		jQuery(document).ready(function() {
-			var button = jQuery('#kcg_custom_permalink_form').parent().find('.submit');
-			button.remove().insertAfter(jQuery('#kcg_custom_permalink_form'));
+			var button = jQuery('#wp_permalink_manager_form').parent().find('.submit');
+			button.remove().insertAfter(jQuery('#wp_permalink_manager_form'));
 		});
 		</script>
 		<?php
@@ -598,14 +487,14 @@ class WP_Permalink_Manager_Form {
 
 		if ( $render_containers ) {
 			wp_nonce_field(
-				'custom-permalinks_' . $id,
+				'wp_permalink_manager_' . $id,
 				'_custom_permalinks_term_nonce',
 				false,
 				true
 			);
 		} else {
 			wp_nonce_field(
-				'custom-permalinks_' . $id,
+				'wp_permalink_manager_' . $id,
 				'_wp_permalink_manager_post_nonce',
 				false,
 				true
@@ -618,7 +507,7 @@ class WP_Permalink_Manager_Form {
 		// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		if ( $render_containers ) {
-			echo '<table class="form-table" id="kcg_custom_permalink_form">' .
+			echo '<table class="form-table" id="wp_permalink_manager_form">' .
 				'<tr>' .
 					'<th scope="row">' . esc_html__( 'KCG Custom Permalink', 'wp-permalink-manager' ) . '</th>' .
 					'<td>';
@@ -636,7 +525,7 @@ class WP_Permalink_Manager_Form {
 		}
 
 		wp_enqueue_script(
-			'custom-permalinks-form',
+			'wp-permalink-manager-form',
 			plugins_url(
 				'/assets/js/script-form' . $this->js_file_suffix,
 				WP_PERMALINK_MANAGER_FILE
@@ -694,8 +583,8 @@ class WP_Permalink_Manager_Form {
 			return;
 		}
 
-		$action1 = 'custom-permalinks_' . $term_id;
-		$action2 = 'custom-permalinks_' . $term->taxonomy;
+		$action1 = 'wp_permalink_manager_' . $term_id;
+		$action2 = 'wp_permalink_manager_' . $term->taxonomy;
 		// phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 		if ( ! wp_verify_nonce( $_REQUEST['_custom_permalinks_term_nonce'], $action1 )
 			&& ! wp_verify_nonce( $_REQUEST['_custom_permalinks_term_nonce'], $action2 )

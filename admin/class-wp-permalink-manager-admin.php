@@ -1,18 +1,11 @@
 <?php
-/**
- * WP Permalink Manager Admin.
- *
- * @package KCGCustomPermalinks
- */
+
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * Create admin menu, add privacy policy etc.
- */
-class Custom_Permalinks_Admin {
+class WP_Permalink_Manager_Admin {
 
 	public function __construct() {
 		
@@ -41,7 +34,7 @@ class Custom_Permalinks_Admin {
 		
 	}
 
-	public function kcg_load_style() {
+	public function wp_pm_load_style() {
 		wp_enqueue_style(
 			'wp-permalink-manager-about-style',
 			plugins_url(
@@ -54,25 +47,35 @@ class Custom_Permalinks_Admin {
 	}
 
 	
-	public  function kcg_admin_content(){
+	public  function wp_pm_admin_content(){
 		$content = '<div class="wrap">
 			<h1 class="wp-heading-inline">
-				Thank you For Installing WP Permalink Manager '.WP_PERMALINK_MANAGER_VERSION.'
+				'.__('Thank you For Installing WP Permalink Manager','wp-permalink-manager').' '.WP_PERMALINK_MANAGER_VERSION.'
 			</h1>
 			
 			<hr>
 				<div class="kcg_admin_parent_container">
 					<div class="kcg_admin_container">
-						<h2>Documentation </h2>
+						<h2>'.__('Documentation','wp-permalink-manager').'</h2>
 						<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, incidunt.
+						'.__('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, incidunt.','wp-permalink-manager').'
 						</p>
 					</div>
 					<div class="kcg_admin_container">
-						<h2>Uses Guide</h2>
+						<h2>
+						'.__('Uses Guide','wp-permalink-manager').'
+						</h2>
 						<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, incidunt.
+							<b>
+							'.__('You can change permalink by  following same Steps','wp-permalink-manager').'
+							</b>
 						</p>
+						<ul>
+							<li>- '.__('Edit your post where you want to edit the permalink.','wp-permalink-manager').'</li>
+							<li>- '.__('In the permalink box insert your desired permalink and update the post.','wp-permalink-manager').'</li>
+							<li>- '.__('Note: Some time it\'s can take more time to update with WP Permalink Manager.','wp-permalink-manager').'</li>
+							<li>- '.__('Preview your post and see your post permalink is changed','wp-permalink-manager').'</li>
+						</ul>
 					</div>
 				</div>
 			</div>';
@@ -80,31 +83,31 @@ class Custom_Permalinks_Admin {
 	}
 
 	public function post_permalinks_page() {
-		$this->kcg_load_style();
-		$this->kcg_admin_content();
+		$this->wp_pm_load_style();
+		$this->wp_pm_admin_content();
 		
 		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ), 5 );
 		
 	}
 
 	public function admin_footer_text() {
-		$cp_footer_text = __( 'WP Permalink Manager version', 'wp-permalink-manager' ) .
+		$wp_pm_footer_text = __( 'WP Permalink Manager version', 'wp-permalink-manager' ) .
 		' ' . WP_PERMALINK_MANAGER_VERSION . ' ' .
 		__( 'by', 'wp-permalink-manager' ) .
-		' <a href="www.kingscrestglobal.com" target="_blank">' .
-			__( 'kingscrestglobal.com', 'wp-permalink-manager' ) .
+		' <a href="https://kingscrestglobal.com/" target="_blank">' .
+			__( 'Team KCG', 'wp-permalink-manager' ) .
 		'</a>' .
 		' - ' .
 		'Visit Us:' .
-		' <a href="https://www.kingscrestglobal.com" target="_blank">' .
-			__( 'kingscrestglobal', 'wp-permalink-manager' ) .
+		' <a href="https://kingscrestglobal.com/" target="_blank">' .
+			__( 'Kings Crest Global', 'wp-permalink-manager' ) .
 		'</a>';
 
-		return $cp_footer_text;
+		return $wp_pm_footer_text;
 	}
 	
 }
 
-new Custom_Permalinks_Admin();
+new WP_Permalink_Manager_Admin();
 
 

@@ -52,9 +52,10 @@ input#wp-permalink-manager-post-slug {
     border: 1px solid #777;
     color: #333;
 }
-
 .kcg_admin_parent_container {
     display: flex;
+    width: 100%;
+    max-width: 96%;
 }
 .wrap{
     padding: 30px 30px 30px 30px;
