@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 .wrap{
     margin:2em auto 1em;
     max-width:1090px;
     background: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+.wrap h2{
+    font-weight: 500;
+    font-size: 20px;
 }
 
 .wrap .float{
@@ -65,7 +71,9 @@ input#wp-permalink-manager-post-slug {
     flex: 0 0 50%;
     max-width: 50%;
 }
-
+.plugin_image{
+    max-width:100%;
+}
 @media (max-width:450px){
     .wrap h1{
         margin:0 0 150px;

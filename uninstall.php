@@ -6,7 +6,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 }
 
 delete_post_meta_by_key( 'wp_permalink_manager' );
-delete_option( 'kcg_custom_permalink_table' );
+delete_option( 'wp_permalink_manager_table' );
 
 $wp_role = get_role( 'administrator' );
 if ( ! empty( $wp_role ) ) {

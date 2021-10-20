@@ -156,7 +156,7 @@ class WP_Permalink_Frontend {
 	private function query_post( $requested_url ) {
 		global $wpdb;
 
-		$cache_name = 'cp$_' . str_replace( '/', '-', $requested_url ) . '_#cp';
+		$cache_name = 'wpm$_' . str_replace( '/', '-', $requested_url ) . '_#wpm';
 		$posts      = wp_cache_get( $cache_name, 'kcg_custom_permalinks' );
 
 		if ( ! $posts ) {
@@ -271,10 +271,7 @@ class WP_Permalink_Frontend {
 			return $query;
 		}
 
-		/*
-		 * First, search for a matching custom permalink, and if found generate the
-		 * corresponding original URL.
-		 */
+		
 		$original_url = null;
 
 		// Get request URI, strip parameters and /'s.
@@ -353,7 +350,7 @@ class WP_Permalink_Frontend {
 			|| ( null !== $original_url && ! $permalink_matched )
 		) {
 			// See if any terms have a matching permalink.
-			$table = get_option( 'kcg_custom_permalink_table' );
+			$table = get_option( 'wp_permalink_manager_table' );
 			if ( $table ) {
 				$term_permalink = false;
 				foreach ( array_keys( $table ) as $permalink ) {
@@ -573,10 +570,6 @@ class WP_Permalink_Frontend {
 		) {
 			global $wp_query;
 
-			/*
-			 * If the post/tag/category we're on has a custom permalink, get it
-			 * and check against the request.
-			 */
 			if ( ( is_single() || is_page() ) && ! empty( $wp_query->post ) ) {
 				$post             = $wp_query->post;
 				$wp_permalink_manager = get_post_meta(
@@ -960,7 +953,7 @@ class WP_Permalink_Frontend {
 	 * @return bool Term link.
 	 */
 	public function term_permalink( $term_id ) {
-		$table = get_option( 'kcg_custom_permalink_table' );
+		$table = get_option( 'wp_permalink_manager_table' );
 		if ( $table ) {
 			foreach ( $table as $link => $info ) {
 				if ( $info['id'] === $term_id ) {

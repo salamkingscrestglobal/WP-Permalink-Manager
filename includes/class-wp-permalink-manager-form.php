@@ -398,7 +398,7 @@ class WP_Permalink_Manager_Form {
 			}
 		}
 
-		return '<strong>' . __( 'Permalink:', 'wp-permalink-manager' ) . '</strong> ' . $content;
+		return '<strong>' . __( 'New Permalink:', 'wp-permalink-manager' ) . '</strong> ' . $content;
 	}
 
 	public function sample_permalink_html( $html, $post_id ) {
@@ -635,7 +635,7 @@ class WP_Permalink_Manager_Form {
 				}
 
 				$permalink = $this->sanitize_permalink( $new_permalink, $language_code );
-				$table     = get_option( 'kcg_custom_permalink_table' );
+				$table     = get_option( 'wp_permalink_manager_table' );
 
 				if ( $permalink && ! array_key_exists( $permalink, $table ) ) {
 					$table[ $permalink ] = array(
@@ -645,14 +645,14 @@ class WP_Permalink_Manager_Form {
 					);
 				}
 
-				update_option( 'kcg_custom_permalink_table', $table );
+				update_option( 'wp_permalink_manager_table', $table );
 			}
 		}
 	}
 
 
 	public function delete_term_permalink( $term_id ) {
-		$table = get_option( 'kcg_custom_permalink_table' );
+		$table = get_option( 'wp_permalink_manager_table' );
 		if ( $table ) {
 			foreach ( $table as $link => $info ) {
 				if ( $info['id'] === (int) $term_id ) {
@@ -662,7 +662,7 @@ class WP_Permalink_Manager_Form {
 			}
 		}
 
-		update_option( 'kcg_custom_permalink_table', $table );
+		update_option( 'wp_permalink_manager_table', $table );
 	}
 
 	/**

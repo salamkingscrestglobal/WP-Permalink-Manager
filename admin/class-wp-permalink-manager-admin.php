@@ -56,10 +56,11 @@ class WP_Permalink_Manager_Admin {
 			<hr>
 				<div class="kcg_admin_parent_container">
 					<div class="kcg_admin_container">
-						<h2>'.__('Documentation','wp-permalink-manager').'</h2>
+						<h2>'.__('Screenshots','wp-permalink-manager').'</h2>
 						<p>
-						'.__('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, incidunt.','wp-permalink-manager').'
+						'.__('Here is the demo Screenshots of Wp Permalink Manager.','wp-permalink-manager').'
 						</p>
+						<img src="'. plugin_dir_url( dirname( __FILE__ ) ).'assets/images/permalink-manager.png'.'" class="plugin_image" alt="">
 					</div>
 					<div class="kcg_admin_container">
 						<h2>

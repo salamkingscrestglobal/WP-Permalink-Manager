@@ -6,21 +6,21 @@ Stable tag: 0.0.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Set WP Permalink Manager on a per-post,  per-tag per-page and per-category basis.
+Set WP Permalink Manager on a per-post, per-tag per-page, and per-category basis.
 
 == Description == 
 
--  This plugin is Developed by Team KCG to change url of the post, page, and custom post.
--  This plugin allows you edit permalink on post, page , custom post.
--  This plugin Do not change theme default permalink structure
--  You have to edit every post/page manually and to edit permalink.
+-  This plugin is Developed by Team KCG to change the URL of the post, page, and custom post.
+-  This plugin allows you to edit permalink on posts, pages, custom posts.
+-  This plugin Do not change the theme default permalink structure
+-  You have to edit every post/page manually and edit the permalink.
 -  If you Uninstall this plugin. Your post will back to the default permalink.
 
 If you need any custom modification or any other thing contact with https://kingscrestglobal.com/ and mention WP Permalink Manager
 
 == Privacy Policy ==
 
-> This plugin do not collects any user Information
+> This plugin does not collect any user Information
 > If you need any custom modification or any other thing contact with https://kingscrestglobal.com/ and mention WP Permalink Manager
 
 == Filters ==
@@ -92,7 +92,7 @@ add_filter( 'wp_permalink_manager_allow_accents', 'team_kcg_allow_caps' );
 
 == Installation ==
 
-Follow the folling step to Install Wp Permalink Manager  through wordpress or Manually from FTP.
+Follow the following step to Install Wp Permalink Manager through wordpress or Manually from FTP.
 
 **From within WordPress**
 
@@ -107,12 +107,11 @@ Follow the folling step to Install Wp Permalink Manager  through wordpress or Ma
 
 == How To Use ==
 
-You can change permalink by  following steps.
+You can change the permalink by following the steps.
 
 - Edit your post where you want to edit the permalink. 
 - In the permalink box insert your desired permalink and update the post.
 - Note: Some time it's can take more time to update with Wp Permalink Manager.
-- Preview your post and see your post permalink is changed
-
+- Preview your post and see your post permalink is changed.
 
 
