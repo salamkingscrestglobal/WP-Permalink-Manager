@@ -44,7 +44,7 @@ class WP_Permalink_Frontend {
 	/**
 	 * Initialize WordPress Hooks.
 	 *
-	 * @since 1.2.0
+	 * @since 1.0.0
 	 * @access public
 	 *
 	 * @return void
@@ -82,7 +82,7 @@ class WP_Permalink_Frontend {
 	/**
 	 * Replace double slash `//` with single slash `/`.
 	 *
-	 * @since 1.6.0
+	 * @since 1.0.0
 	 * @access public
 	 *
 	 * @param string $permalink URL in which `//` needs to be replaced with `/`.
@@ -111,7 +111,7 @@ class WP_Permalink_Frontend {
 	 * Use `wpml_permalink` to add language information to permalinks and
 	 * resolve language switcher issue if found.
 	 *
-	 * @since 1.6.0
+	 * @since 1.0.0
 	 * @access public
 	 *
 	 * @param string $permalink     Custom Permalink.
@@ -145,7 +145,7 @@ class WP_Permalink_Frontend {
 	/**
 	 * Search a permalink in the posts table and return its result.
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 * @access private
 	 *
 	 * @param string $requested_url Requested URL.
@@ -157,7 +157,7 @@ class WP_Permalink_Frontend {
 		global $wpdb;
 
 		$cache_name = 'wpm$_' . str_replace( '/', '-', $requested_url ) . '_#wpm';
-		$posts      = wp_cache_get( $cache_name, 'kcg_custom_permalinks' );
+		$posts      = wp_cache_get( $cache_name, 'wp_permalink_manager' );
 
 		if ( ! $posts ) {
 			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
@@ -195,7 +195,7 @@ class WP_Permalink_Frontend {
 				);
 			}
 
-			wp_cache_set( $cache_name, $posts, 'kcg_custom_permalinks' );
+			wp_cache_set( $cache_name, $posts, 'wp_permalink_manager' );
 		}
 
 		return $posts;
@@ -205,7 +205,7 @@ class WP_Permalink_Frontend {
 	 * Check conditions if it matches then return true to stop processing the
 	 * particular query like for sitemaps.
 	 *
-	 * @since 2.1.0
+	 * @since 1.0.0
 	 * @access private
 	 *
 	 * @param array $query Requested Query.
@@ -244,7 +244,7 @@ class WP_Permalink_Frontend {
 	/**
 	 * Filter to rewrite the query if we have a matching post.
 	 *
-	 * @since 0.1.0
+	 * @since 1.0.0
 	 * @access public
 	 *
 	 * @param array $query The array of requested query variables.
@@ -468,7 +468,7 @@ class WP_Permalink_Frontend {
 	/**
 	 * Filters the determined post ID and change it if we have a matching URL in CP.
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 * @access public
 	 *
 	 * @param int    $post_id    Post ID or 0.

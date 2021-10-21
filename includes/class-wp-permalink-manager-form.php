@@ -488,7 +488,7 @@ class WP_Permalink_Manager_Form {
 		if ( $render_containers ) {
 			wp_nonce_field(
 				'wp_permalink_manager_' . $id,
-				'_custom_permalinks_term_nonce',
+				'_wp_permalink_term_nonce',
 				false,
 				true
 			);
@@ -509,7 +509,7 @@ class WP_Permalink_Manager_Form {
 		if ( $render_containers ) {
 			echo '<table class="form-table" id="wp_permalink_manager_form">' .
 				'<tr>' .
-					'<th scope="row">' . esc_html__( 'KCG Custom Permalink', 'wp-permalink-manager' ) . '</th>' .
+					'<th scope="row">' . esc_html__( 'Wp Permalink Manager', 'wp-permalink-manager' ) . '</th>' .
 					'<td>';
 		}
 		if ( '' === $permalink ) {
@@ -564,20 +564,10 @@ class WP_Permalink_Manager_Form {
 		}
 	}
 
-	/**
-	 * Save term (common to tags and categories).
-	 *
-	 * @since 1.6.0
-	 * @access public
-	 *
-	 * @param string $term_id Term ID.
-	 *
-	 * @return void
-	 */
 	public function save_term( $term_id ) {
 		$term = get_term( $term_id );
 
-		if ( ! isset( $_REQUEST['_custom_permalinks_term_nonce'] )
+		if ( ! isset( $_REQUEST['_wp_permalink_term_nonce'] )
 			&& ! isset( $_REQUEST['wp_permalink_manager'] )
 		) {
 			return;
@@ -586,8 +576,8 @@ class WP_Permalink_Manager_Form {
 		$action1 = 'wp_permalink_manager_' . $term_id;
 		$action2 = 'wp_permalink_manager_' . $term->taxonomy;
 		// phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-		if ( ! wp_verify_nonce( $_REQUEST['_custom_permalinks_term_nonce'], $action1 )
-			&& ! wp_verify_nonce( $_REQUEST['_custom_permalinks_term_nonce'], $action2 )
+		if ( ! wp_verify_nonce( $_REQUEST['_wp_permalink_term_nonce'], $action1 )
+			&& ! wp_verify_nonce( $_REQUEST['_wp_permalink_term_nonce'], $action2 )
 		) {
 			return;
 		}
@@ -669,7 +659,7 @@ class WP_Permalink_Manager_Form {
 	 * Check Conflicts and resolve it (e.g: Polylang) UPDATED for Polylang
 	 * hide_default setting.
 	 *
-	 * @since 1.2.0
+	 * @since 1.0.0
 	 * @access public
 	 *
 	 * @param string $requested_url Original permalink.
@@ -723,7 +713,7 @@ class WP_Permalink_Manager_Form {
 	/**
 	 * Refresh Permalink using AJAX Call.
 	 *
-	 * @since 1.6.0
+	 * @since 1.0.0
 	 * @access public
 	 *
 	 * @param object $data Contains post id with some default REST Values.
@@ -781,14 +771,14 @@ class WP_Permalink_Manager_Form {
 	/**
 	 * Added Custom Endpoints for refreshing the permalink.
 	 *
-	 * @since 1.6.0
+	 * @since 1.0.0
 	 * @access public
 	 *
 	 * @return void
 	 */
 	public function rest_edit_form() {
 		register_rest_route(
-			'custom-permalinks/v1',
+			'wp-permalink-manager/v1',
 			'/get-permalink/(?P<id>\d+)',
 			array(
 				'methods'             => 'GET',

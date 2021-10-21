@@ -1,0 +1,95 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2021-10-21 18:56+0600\n"
+"PO-Revision-Date: 2021-10-21 19:01+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _e;__;esc_html__\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: assets\n"
+"X-Poedit-SearchPathExcluded-1: .git\n"
+
+#: admin/class-wp-permalink-manager-admin.php:53
+msgid "Thank you For Installing WP Permalink Manager"
+msgstr ""
+
+#: admin/class-wp-permalink-manager-admin.php:59
+msgid "Screenshots"
+msgstr ""
+
+#: admin/class-wp-permalink-manager-admin.php:61
+msgid "Here is the demo Screenshots of Wp Permalink Manager."
+msgstr ""
+
+#: admin/class-wp-permalink-manager-admin.php:67
+msgid "Uses Guide"
+msgstr ""
+
+#: admin/class-wp-permalink-manager-admin.php:71
+msgid "You can change permalink by  following same Steps"
+msgstr ""
+
+#: admin/class-wp-permalink-manager-admin.php:75
+msgid "Edit your post where you want to edit the permalink."
+msgstr ""
+
+#: admin/class-wp-permalink-manager-admin.php:76
+msgid "In the permalink box insert your desired permalink and update the post."
+msgstr ""
+
+#: admin/class-wp-permalink-manager-admin.php:77
+msgid "Note: Some time it's can take more time to update with WP Permalink Manager."
+msgstr ""
+
+#: admin/class-wp-permalink-manager-admin.php:78
+msgid "Preview your post and see your post permalink is changed"
+msgstr ""
+
+#: admin/class-wp-permalink-manager-admin.php:95
+msgid "WP Permalink Manager version"
+msgstr ""
+
+#: admin/class-wp-permalink-manager-admin.php:97
+msgid "by"
+msgstr ""
+
+#: admin/class-wp-permalink-manager-admin.php:99
+msgid "Team KCG"
+msgstr ""
+
+#: admin/class-wp-permalink-manager-admin.php:104
+msgid "Kings Crest Global"
+msgstr ""
+
+#: includes/class-wp-permalink-manager-form.php:85
+msgid "WP Permalink Manager"
+msgstr ""
+
+#: includes/class-wp-permalink-manager-form.php:347
+msgid "View Page"
+msgstr ""
+
+#: includes/class-wp-permalink-manager-form.php:362
+msgid "View"
+msgstr ""
+
+#: includes/class-wp-permalink-manager-form.php:401
+msgid "New Permalink:"
+msgstr ""
+
+#: includes/class-wp-permalink-manager-form.php:512
+#: includes/class-wp-permalink-manager.php:106
+msgid "Wp Permalink Manager"
+msgstr ""
+
+#: includes/class-wp-permalink-manager-form.php:559
+msgid "Leave blank to disable"
+msgstr ""

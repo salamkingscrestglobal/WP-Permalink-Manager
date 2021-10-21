@@ -44,7 +44,7 @@ class WP_Permalink_Manager {
 	/**
 	 * Define constant if not set already.
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 * @access private
 	 *
 	 * @param string      $name  Constant name.
@@ -59,7 +59,7 @@ class WP_Permalink_Manager {
 	/**
 	 * Include required core files used in admin and on the frontend.
 	 *
-	 * @since 1.2.18
+	 * @since 1.0.0
 	 * @access private
 	 */
 	private function includes() {
@@ -86,6 +86,7 @@ class WP_Permalink_Manager {
 			array( 'WP_Permalink_Manager', 'add_roles' )
 		);
 		add_action( 'plugins_loaded', array( $this, 'check_loaded_plugins' ) );
+		//add_action( 'init', array($this,'check_loaded_plugins') );
 	}
 
 	
@@ -124,9 +125,9 @@ class WP_Permalink_Manager {
 		}
 
 		load_plugin_textdomain(
-			'custom-permalinks',
+			'wp-permalink-manager',
 			false,
-			basename( dirname( WP_PERMALINK_MANAGER_FILE ) ) . '/languages/'
+			dirname( plugin_basename( __FILE__ ) ) . '/languages'
 		);
 	}
 }
