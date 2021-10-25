@@ -50,15 +50,15 @@ class WP_Permalink_Manager_Admin {
 	public  function wp_pm_admin_content(){
 		$content = '<div class="wrap">
 			<h1 class="wp-heading-inline">
-				'.__('Thank you For Installing WP Permalink Manager','wp-permalink-manager').' '.WP_PERMALINK_MANAGER_VERSION.'
+				'.__('Thank you for installing WP Permalink Manager','wp-permalink-manager').' '.WP_PERMALINK_MANAGER_VERSION.'
 			</h1>
 			
 			<hr>
 				<div class="kcg_admin_parent_container">
 					<div class="kcg_admin_container">
-						<h2>'.__('Screenshots','wp-permalink-manager').'</h2>
+						<h2>'.__('Plugin Interface','wp-permalink-manager').'</h2>
 						<p>
-						'.__('Here is the demo Screenshots of Wp Permalink Manager.','wp-permalink-manager').'
+						'.__('Here is a demo screenshot of WP Permalink Manager.','wp-permalink-manager').'
 						</p>
 						<img src="'. plugin_dir_url( dirname( __FILE__ ) ).'assets/images/permalink-manager.png'.'" class="plugin_image" alt="">
 					</div>
@@ -68,14 +68,14 @@ class WP_Permalink_Manager_Admin {
 						</h2>
 						<p>
 							<b>
-							'.__('You can change permalink by  following same Steps','wp-permalink-manager').'
+							'.__('You can change post permalink by the following steps:','wp-permalink-manager').'
 							</b>
 						</p>
 						<ul>
 							<li>- '.__('Edit your post where you want to edit the permalink.','wp-permalink-manager').'</li>
 							<li>- '.__('In the permalink box insert your desired permalink and update the post.','wp-permalink-manager').'</li>
-							<li>- '.__('Note: Some time it\'s can take more time to update with WP Permalink Manager.','wp-permalink-manager').'</li>
-							<li>- '.__('Preview your post and see your post permalink is changed','wp-permalink-manager').'</li>
+							<li>- '.__('Preview your post and see the post URL is changed.','wp-permalink-manager').'</li>
+							<li>- '.__('If you want to revert to the old URL system, just deactivate the plugin.','wp-permalink-manager').'</li>
 						</ul>
 					</div>
 				</div>

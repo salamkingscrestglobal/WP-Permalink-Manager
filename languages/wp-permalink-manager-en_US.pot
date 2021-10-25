@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2021-10-21 18:56+0600\n"
-"PO-Revision-Date: 2021-10-21 19:01+0600\n"
+"POT-Creation-Date: 2021-10-22 17:06+0600\n"
+"PO-Revision-Date: 2021-10-22 17:07+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -12,21 +12,21 @@ msgstr ""
 "X-Generator: Poedit 3.0\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-KeywordsList: _e;__;esc_html__\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: assets\n"
 "X-Poedit-SearchPathExcluded-1: .git\n"
 
 #: admin/class-wp-permalink-manager-admin.php:53
-msgid "Thank you For Installing WP Permalink Manager"
+msgid "Thank you for installing WP Permalink Manager"
 msgstr ""
 
 #: admin/class-wp-permalink-manager-admin.php:59
-msgid "Screenshots"
+msgid "Plugin Interface"
 msgstr ""
 
 #: admin/class-wp-permalink-manager-admin.php:61
-msgid "Here is the demo Screenshots of Wp Permalink Manager."
+msgid "Here is a demo screenshot of WP Permalink Manager."
 msgstr ""
 
 #: admin/class-wp-permalink-manager-admin.php:67
@@ -34,7 +34,7 @@ msgid "Uses Guide"
 msgstr ""
 
 #: admin/class-wp-permalink-manager-admin.php:71
-msgid "You can change permalink by  following same Steps"
+msgid "You can change post permalink by the following steps:"
 msgstr ""
 
 #: admin/class-wp-permalink-manager-admin.php:75
@@ -46,11 +46,11 @@ msgid "In the permalink box insert your desired permalink and update the post."
 msgstr ""
 
 #: admin/class-wp-permalink-manager-admin.php:77
-msgid "Note: Some time it's can take more time to update with WP Permalink Manager."
+msgid "Preview your post and see the post URL is changed."
 msgstr ""
 
 #: admin/class-wp-permalink-manager-admin.php:78
-msgid "Preview your post and see your post permalink is changed"
+msgid "If you want to revert to the old URL system, just deactivate the plugin."
 msgstr ""
 
 #: admin/class-wp-permalink-manager-admin.php:95

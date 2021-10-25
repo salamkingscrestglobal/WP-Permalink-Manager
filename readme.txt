@@ -2,7 +2,7 @@
 Contributors: Team KCG
 Tags: permalink, url, link, address, custom, redirect, custom post type, GDPR, GDPR Compliant
 Tested up to: 5.8
-Stable tag: 0.0.1
+Stable tag: 1.0.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -16,12 +16,19 @@ Set WP Permalink Manager on a per-post, per-tag per-page, and per-category basis
 -  You have to edit every post/page manually and edit the permalink.
 -  If you Uninstall this plugin. Your post will back to the default permalink.
 
-If you need any custom modification or any other thing contact with https://kingscrestglobal.com/ and mention WP Permalink Manager
+
+== Free Plugin Support == 
+
+-  If you need any custom modifications or for any other queries, feedback if you simply want to get in touch with us please use our <a href="https://kingscrestglobal.com/contact/">contact form.</a> 
 
 == Privacy Policy ==
 
 > This plugin does not collect any user Information
 > If you need any custom modification or any other thing contact with https://kingscrestglobal.com/ and mention WP Permalink Manager
+
+
+== Screenshots ==
+1. screenshot-1.png
 
 == Filters ==
 
@@ -111,7 +118,6 @@ You can change the permalink by following the steps.
 
 - Edit your post where you want to edit the permalink. 
 - In the permalink box insert your desired permalink and update the post.
-- Note: Some time it's can take more time to update with Wp Permalink Manager.
-- Preview your post and see your post permalink is changed.
+- Preview your post and see your post URL is changed.
 
 
