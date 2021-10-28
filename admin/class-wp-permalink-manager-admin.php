@@ -15,8 +15,8 @@ class WP_Permalink_Manager_Admin {
 
 	public function admin_menu() {
 		add_menu_page(
-			'WP Permalink Manager',
-			'WP Permalink Manager',
+			'Permalink Editor',
+			'Permalink Editor',
 			'wp_pm_view_post_permalinks',
 			'wp-pl-manager',
 			array( $this, 'post_permalinks_page' ),
@@ -50,7 +50,7 @@ class WP_Permalink_Manager_Admin {
 	public  function wp_pm_admin_content(){
 		$content = '<div class="wrap">
 			<h1 class="wp-heading-inline">
-				'.__('Thank you for installing WP Permalink Manager','wp-permalink-manager').' '.WP_PERMALINK_MANAGER_VERSION.'
+				'.__('Thank you for installing Permalink Editor','wp-permalink-manager').' '.WP_PERMALINK_MANAGER_VERSION.'
 			</h1>
 			
 			<hr>
@@ -58,7 +58,7 @@ class WP_Permalink_Manager_Admin {
 					<div class="kcg_admin_container">
 						<h2>'.__('Plugin Interface','wp-permalink-manager').'</h2>
 						<p>
-						'.__('Here is a demo screenshot of WP Permalink Manager.','wp-permalink-manager').'
+						'.__('You can create/edit URL by adding /, - or both at the same time. <br/> Here is a demo screenshot of Permalink Editor.','wp-permalink-manager').'
 						</p>
 						<img src="'. plugin_dir_url( dirname( __FILE__ ) ).'assets/images/permalink-manager.png'.'" class="plugin_image" alt="">
 					</div>
@@ -72,10 +72,10 @@ class WP_Permalink_Manager_Admin {
 							</b>
 						</p>
 						<ul>
-							<li>- '.__('Edit your post where you want to edit the permalink.','wp-permalink-manager').'</li>
+							<li>- '.__('Edit your posts/pages and create SEO friendly custom URL.','wp-permalink-manager').'</li>
 							<li>- '.__('In the permalink box insert your desired permalink and update the post.','wp-permalink-manager').'</li>
 							<li>- '.__('Preview your post and see the post URL is changed.','wp-permalink-manager').'</li>
-							<li>- '.__('If you want to revert to the old URL system, just deactivate the plugin.','wp-permalink-manager').'</li>
+							<li>- '.__('If you want to revert to the Wordpress default URL system, just deactivate the plugin.','wp-permalink-manager').'</li>
 						</ul>
 					</div>
 				</div>
@@ -92,7 +92,7 @@ class WP_Permalink_Manager_Admin {
 	}
 
 	public function admin_footer_text() {
-		$wp_pm_footer_text = __( 'WP Permalink Manager version', 'wp-permalink-manager' ) .
+		$wp_pm_footer_text = __( 'Permalink Editor version', 'wp-permalink-manager' ) .
 		' ' . WP_PERMALINK_MANAGER_VERSION . ' ' .
 		__( 'by', 'wp-permalink-manager' ) .
 		' <a href="https://kingscrestglobal.com/" target="_blank">' .

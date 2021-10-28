@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Permalink Manager Frontend.
+ * Permalink Editor Frontend.
  *
  * @package CustomPermalinks
  */

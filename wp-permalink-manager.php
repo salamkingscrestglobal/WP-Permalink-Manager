@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WP Permalink Manager
+ * Plugin Name: Permalink Editor
  * Plugin URI: https://kingscrestglobal.com/
  * Description: Set Permalinks on a per-post and  per-page basis. This is very easy to use and this will not effect your rewrite url rules.
  * Version: 1.0.0
@@ -25,5 +25,5 @@ if ( ! defined( 'WP_PERMALINK_MANAGER_FILE' ) ) {
 	define( 'WP_PERMALINK_MANAGER_FILE', __FILE__ );
 }
 
-// Include the main WP Permalink Manager class.
+// Include the main Permalink Editor class.
 require_once plugin_dir_path( WP_PERMALINK_MANAGER_FILE ) . 'includes/class-wp-permalink-manager.php';

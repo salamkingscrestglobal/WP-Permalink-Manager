@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Permalink Manager setup.
+ * Permalink Editor setup.
  *
  * @package KCGCustomPermalinks
  */
@@ -10,11 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Main WP Permalink Manager class.
+ * Main Permalink Editor class.
  */
 class WP_Permalink_Manager {
 	/**
-	 * WP Permalink Manager version.
+	 * Permalink Editor version.
 	 *
 	 * @var string
 	 */
@@ -30,7 +30,7 @@ class WP_Permalink_Manager {
 	}
 
 	/**
-	 * Define WP Permalink Manager Constants.
+	 * Define Permalink Editor Constants.
 	 *
 	 * @since 2.0.0
 	 * @access private
@@ -103,7 +103,7 @@ class WP_Permalink_Manager {
 		if ( empty( $cp_role ) ) {
 			add_role(
 				'wp_permalink_manager_mr',
-				__( 'Wp Permalink Manager' ),
+				__( 'Permalink Editor' ),
 				array(
 					'wp_pm_view_post_permalinks'     => true,
 					'wp_pm_view_category_permalinks' => true,

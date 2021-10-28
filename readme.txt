@@ -1,4 +1,4 @@
-=== WP Permalink Manager ===
+=== Permalink Editor ===
 Contributors: Team KCG
 Tags: permalink, url, link, address, custom, redirect, custom post type, GDPR, GDPR Compliant
 Tested up to: 5.8
@@ -6,7 +6,7 @@ Stable tag: 1.0.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Set WP Permalink Manager on a per-post, per-tag per-page, and per-category basis.
+Set Permalink Editor on a per-post, per-tag per-page, and per-category basis.
 
 == Description == 
 
@@ -24,7 +24,7 @@ Set WP Permalink Manager on a per-post, per-tag per-page, and per-category basis
 == Privacy Policy ==
 
 > This plugin does not collect any user Information
-> If you need any custom modification or any other thing contact with https://kingscrestglobal.com/ and mention WP Permalink Manager
+> If you need any custom modification or any other thing contact with https://kingscrestglobal.com/ and mention Permalink Editor
 
 
 == Screenshots ==
@@ -54,7 +54,7 @@ add_filter( 'wp_permalink_manager_exclude_permalink', 'team_kcg_exclude_permalin
 
 === Exclude Post Type ===
 
-To remove Wp Permalink Manager **form** from any post type, add the filter that looks like this:
+To remove Permalink Editor **form** from any post type, add the filter that looks like this:
 
 `
 function team_kcg_exclude_post_type( $post_type ) {
@@ -70,7 +70,7 @@ add_filter( 'wp_permalink_manager_exclude_post_type', 'team_kcg_exclude_post_typ
 
 === Exclude Posts ===
 
-To exclude Wp Permalink Manager **form** from any posts (based on ID, Template, etc), add the filter that looks like this:
+To exclude Permalink Editor **form** from any posts (based on ID, Template, etc), add the filter that looks like this:
 
 `
 function team_kcg_exclude_posts( $post ) {
@@ -99,25 +99,26 @@ add_filter( 'wp_permalink_manager_allow_accents', 'team_kcg_allow_caps' );
 
 == Installation ==
 
-Follow the following step to Install Wp Permalink Manager through wordpress or Manually from FTP.
+Follow the following step to Install Permalink Editor through wordpress or Manually from FTP.
 
 **From within WordPress**
 
 1. Visit 'Plugins > Add New'
-2. Search for Wp Permalink Manager
-3. Activate Wp Permalink Manager from your Plugins page.
+2. Search for Permalink Editor
+3. Activate Permalink Editor from your Plugins page.
 
 **Manually**
 
 1. Upload the `wp-permalink-manager` folder to the `/wp-content/plugins/` directory
-2. Activate Wp Permalink Manager through the 'Plugins' menu in WordPress
+2. Activate Permalink Editor  through the 'Plugins' menu in WordPress
 
 == How To Use ==
 
 You can change the permalink by following the steps.
 
-- Edit your post where you want to edit the permalink. 
+- Edit your posts/pages and create SEO friendly custom URL.
 - In the permalink box insert your desired permalink and update the post.
-- Preview your post and see your post URL is changed.
+- Preview your post and see the post URL is changed.
+- If you want to revert to the Wordpress default URL system, just deactivate the plugin.
 
 

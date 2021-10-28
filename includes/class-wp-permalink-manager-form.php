@@ -82,7 +82,7 @@ class WP_Permalink_Manager_Form {
 	public function permalink_edit_box() {
 		add_meta_box(
 			'wp-permalink-manager-edit-box',
-			__( 'WP Permalink Manager', 'wp-permalink-manager' ),
+			__( 'Permalink Editor', 'wp-permalink-manager' ),
 			array( $this, 'meta_edit_form' ),
 			null,
 			'normal',
@@ -509,7 +509,7 @@ class WP_Permalink_Manager_Form {
 		if ( $render_containers ) {
 			echo '<table class="form-table" id="wp_permalink_manager_form">' .
 				'<tr>' .
-					'<th scope="row">' . esc_html__( 'Wp Permalink Manager', 'wp-permalink-manager' ) . '</th>' .
+					'<th scope="row">' . esc_html__( 'Permalink Editor', 'wp-permalink-manager' ) . '</th>' .
 					'<td>';
 		}
 		if ( '' === $permalink ) {
